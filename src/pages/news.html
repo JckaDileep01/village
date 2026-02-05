@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>News - Kareempur</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/news.css">
+    <style>
+        /* Ensure content is visible immediately */
+        body { opacity: 1; }
+    </style>
+</head>
+<body class="sub-page bg-slate-50 dark:bg-zinc-950 transition-colors duration-300">
+    <!-- Navbar Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <main>
+        <!-- Full-width news section (matches Gram Panchayat layout) -->
+        <section class="news-section-page">
+            <div class="news-container">
+                <h1 class="news-heading">Latest News</h1>
+                <div id="news-list" class="news-list">
+                    <!-- If no id provided, show grid of newspaper-style cards; otherwise JS will render the single article -->
+                </div>
+            </div>
+        </section>
+    </main> 
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script type="module">
+        import { loadComponent } from '../js/utils/loader.js';
+        import { initTheme, toggleTheme } from '../js/theme.js';
+        import { initMobileMenu } from '../js/ui.js';
+        import { setupNavigation } from '../js/utils/navigation.js';
+        import { initNavbarScroll, initScrollObserver } from '../js/animations.js';
+        import { NEWS } from '../js/news-data.js';
+        import { initLanguageSystem, setLanguage } from '../js/translate.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Initialize Theme
+            initTheme();
+
+            // Load navbar and footer
+            try {
+                await Promise.all([
+                    loadComponent('#nav-placeholder', '../components/navbar.html', '../../'),
+                    loadComponent('#footer-placeholder', '../components/footer.html')
+                ]);
+            } catch (e) {
+                console.error('Error loading shell components:', e);
+            }
+
+            // Initialize Translator
+            initLanguageSystem();
+
+            // Initialize Icons
+            if (window.lucide) lucide.createIcons();
+
+            // Wire theme toggle and mobile menu
+            const toggleBtn = document.getElementById('theme-toggle');
+            if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+            initMobileMenu();
+
+            // Fix links and navigation for subpage context
+            setupNavigation();
+
+            // Initialize scroll behaviors
+            initNavbarScroll();
+            initScrollObserver();
+
+            // Render news
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const container = document.getElementById('news-list');
+
+            function splitContent(text) {
+                if (!text) return { firstHalf: '', secondHalf: '' };
+                const words = text.split(' ');
+                const half = Math.ceil(words.length / 2);
+                const firstHalf = words.slice(0, half).join(' ');
+                const secondHalf = words.slice(half).join(' ');
+                return { firstHalf, secondHalf };
+            }
+
+            function renderCard(n) {
+                const enSplit = splitContent(n.content);
+                const teSplit = splitContent(n.content_te);
+                
+                return `
+                    <article class="news-card-listing">
+                        <h3 class="news-list-title" data-en="${n.title}" data-te="${n.title_te}">${n.title}</h3>
+                        <p class="news-list-excerpt" data-en="${n.excerpt}" data-te="${n.excerpt_te}">${n.excerpt}</p>
+
+                        <div class="news-image-wrapper">
+                            <img src="${n.image}" alt="${n.title}" class="news-image">
+                            <p class="news-image-caption" data-en="Image: ${n.title}" data-te="చిత్రం: ${n.title_te}">Image: ${n.title}</p>
+                        </div>
+
+                        <div class="news-list-body">
+                            <p class="news-part-1" data-en="${enSplit.firstHalf}" data-te="${teSplit.firstHalf}">${enSplit.firstHalf}</p>
+                            <p class="news-part-2" data-en="${enSplit.secondHalf}" data-te="${teSplit.secondHalf}">${enSplit.secondHalf}</p>
+                        </div>
+                    </article>
+                `;
+            }
+
+            function renderFull(n) {
+                return `
+                    <article class="news-full-card">
+                        <h1 class="news-full-title" data-en="${n.title}" data-te="${n.title_te}">${n.title}</h1>
+                        <p class="news-date">${n.date}</p>
+                        <div class="news-image-wrapper">
+                            <img src="${n.image}" alt="${n.title}" class="news-image">
+                            <p class="news-image-caption" data-en="Image: ${n.title}" data-te="చిత్రం: ${n.title_te}">Image: ${n.title}</p>
+                        </div>
+                        <div class="news-full-body">
+                            <p class="news-full-excerpt" data-en="${n.excerpt}" data-te="${n.excerpt_te}">${n.excerpt}</p>
+                            <div class="news-full-content" data-en="${n.content}" data-te="${n.content_te}">${n.content}</div>
+                        </div>
+                    </article>
+                `;
+            }
+
+            if (id) {
+                const news = NEWS.find(n => String(n.id) === String(id));
+                if (news) {
+                    container.innerHTML = renderFull(news);
+                } else {
+                    container.innerHTML = '<p>News not found.</p>';
+                }
+            } else {
+                container.innerHTML = `<div class="news-grid">${NEWS.map(n => renderCard(n)).join('\n')}</div>`;
+            }
+            
+            // Re-apply language after rendering dynamic content
+            const savedLang = localStorage.getItem('userLanguage') || 'en';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>

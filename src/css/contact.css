@@ -1,0 +1,83 @@
+/* Contact Section */
+.contact-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ffffff; /* white for light mode */
+}
+
+.dark .contact-section {
+    background-color: #000000; /* or transparent */
+}
+
+.contact-container {
+    max-width: 56rem; /* 4xl */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Contact Title */
+.contact-title {
+    font-size: 2.25rem; /* 4xl */
+    line-height: 2.5rem;
+    margin-bottom: 3rem; /* 12 */
+    color: #1e293b; /* slate-800 */
+}
+
+.dark .contact-title {
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .contact-title {
+        font-size: 3rem; /* 5xl */
+        line-height: 1;
+    }
+}
+
+/* Contact Info Wrapper */
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem; /* 8 */
+    color: #475569; /* slate-600 */
+}
+
+.dark .contact-info-wrapper {
+    color: #a1a1aa; /* zinc-400 */
+}
+
+@media (min-width: 768px) {
+    .contact-info-wrapper {
+        flex-direction: row;
+    }
+}
+
+/* Contact Item */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* 3 */
+}
+
+/* Contact Icon */
+.contact-icon {
+    width: 1.5rem; /* 6 */
+    height: 1.5rem;
+    color: #f97316; /* orange-500 */
+}
+
+/* Scroll Animation (reused) */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

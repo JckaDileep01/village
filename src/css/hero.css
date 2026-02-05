@@ -1,0 +1,146 @@
+/* Hero Container */
+.hero-section {
+    position: relative;
+    /* Reduced height to avoid too-tall hero on large screens; responsive min-height for smaller devices */
+    height: 80vh;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Background Image */
+.hero-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content Container */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 56rem; /* max-w-4xl */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem; /* reduced top margin for better vertical centering */
+}
+
+/* Icon Wrapper */
+.hero-icon-wrapper {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    /* animate-pop-in */
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+}
+
+.hero-icon-circle {
+    width: 5rem; /* w-20 */
+    height: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to bottom right, #0ea5e9, #2563eb); /* from-sky-500 to-blue-600 */
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.3); /* shadow-sky-500/30 */
+}
+
+.hero-icon {
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem;
+    color: #ffffff;
+}
+
+/* Title */
+.hero-title {
+    font-size: 2.5rem; /* Reduced for mobile */
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 #230d0d, -1px -1px 0 #3f1c1c, 1px -1px 0 #210909, -1px 1px 0 #511313;
+    /* animate-fade-up delay-200 */
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 6rem; /* text-8xl */
+    }
+}
+
+/* Slogan */
+.hero-slogan {
+    font-size: 1.25rem; /* Reduced for mobile */
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    margin-bottom: 2.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
+    /* animate-fade-up delay-400 */
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .hero-slogan {
+        font-size: 3rem; /* text-5xl */
+    }
+}
+
+/* Location Badge */
+.hero-location-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.125rem; /* text-lg */
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    /* animate-fade-up delay-600 */
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.hero-location-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #38bdf8; /* text-sky-400 */
+}
+
+/* Keyframes (duplicated from style.css for self-containment, or rely on global style.css) */
+/* Since user asked for separate CSS file like intro-3d, I will include relevant keyframes here to be safe and self-contained */
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

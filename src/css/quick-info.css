@@ -1,0 +1,129 @@
+/* Quick Info Section */
+.quick-info-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #f8fafc; /* Light mode background */
+    color: #0f172a; /* Light mode text */
+}
+
+.dark .quick-info-section {
+    background-color: #000000; /* Dark mode background */
+    color: #ffffff; /* Dark mode text */
+}
+
+.quick-info-container {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quick-info-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+    .quick-info-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Info Card */
+.info-card {
+    background-color: #ffffff;
+    border: 1px solid #e4e4e7; /* zinc-200 */
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode class support (if controlled by class="dark" on html/body) */
+.dark .info-card {
+    background-color: #18181b;
+    border-color: #27272a;
+}
+
+.info-card:hover {
+    border-color: rgba(249, 115, 22, 0.5); /* orange-500/50 */
+}
+
+/* Card Icon */
+.info-icon {
+    width: 3rem;
+    height: 3rem;
+    color: #f97316; /* orange-500 */
+    margin-bottom: 1rem;
+}
+
+/* Card Title */
+.info-title {
+    font-size: 1.25rem; /* Reduced for mobile */
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b; /* slate-800 */
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .info-title {
+        font-size: 1.5rem;
+    }
+}
+
+.dark .info-title {
+    color: #ffffff;
+}
+
+/* Info List */
+.info-list {
+    color: #475569; /* slate-600 */
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dark .info-list {
+    color: #a1a1aa;
+}
+
+.info-list li {
+    margin-bottom: 0.5rem;
+}
+
+.info-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Flex Item for List (Facilities) */
+.info-list-item-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+/* Status Icons */
+.status-icon-success {
+    color: #22c55e; /* green-500 */
+}
+
+.status-icon-warning {
+    color: #eab308; /* yellow-500 */
+}
+
+/* Animations */
+/* Note: 'scroll-animate' class was present in original HTML, ensuring it works if defined globally or here */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

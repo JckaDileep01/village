@@ -1,0 +1,332 @@
+/* Navbar Container */
+.navbar {
+    position: fixed;
+    top: -100px; /* Initially hidden above viewport */
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: transparent;
+    color: #0f172a;
+    transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
+    will-change: top;
+    /* Use a composited pseudo-element for smooth background fade and better rendering performance */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Navbar Scrolled State */
+.navbar.navbar-visible {
+    top: 0;
+}
+
+/* Background layer for smooth fade (optimised using opacity) */
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 220ms ease;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    will-change: opacity;
+}
+
+/* Dark mode background layer */
+.dark .navbar::before {
+    background-color: rgba(0, 0, 0, 0.9);
+} 
+
+.navbar-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem; /* Reduced height */
+    position: relative;
+}
+
+/* Left Side Controls (Language) */
+.navbar-left {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Desktop Menu */
+.navbar-desktop-menu {
+    display: none;
+}
+
+/* Media query moved to bottom */
+
+.navbar-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 1.05rem; /* Increased font size */
+    font-weight: 500;
+    color: #0f172a;
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap; /* Prevent wrapping */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-link:hover {
+    color: #f97316; /* hover:text-orange-500 */
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: flex; /* Changed from inline-block to flex for alignment */
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: left;
+    border-top: 3px solid #f97316; /* Orange accent */
+    margin-top: 0.5rem; /* Gap between navbar and dropdown */
+}
+
+/* Invisible bridge to prevent dropdown from closing when moving cursor */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem; /* Same height as margin-top */
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+    background: transparent;
+}
+
+.dropdown-content a {
+    color: #334155;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+    font-weight: 400;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f5f9;
+    color: #f97316;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.highlight-red {
+    color: #ef4444 !important; /* Tailwind red-500 equivalent */
+    font-weight: 700 !important;
+}
+
+/* Right Side Controls */
+.navbar-controls {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle-btn {
+    padding: 0.5rem;
+    border-radius: 9999px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #0f172a;
+}
+
+.theme-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-btn:focus {
+    outline: none;
+}
+
+.theme-icon-sun {
+    display: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #fb923c; /* text-orange-400 */
+}
+
+.theme-icon-moon {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #0f172a;
+}
+
+/* Dark Mode Overrides for Icons */
+.dark .theme-icon-sun {
+    display: block;
+    color: #fb923c; /* Make sun orange in dark mode for visibility */
+}
+
+.dark .theme-icon-moon {
+    display: none;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: block;
+    padding: 0.5rem;
+    color: #0f172a;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background-color: rgba(255, 255, 255, 0.98);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.dark .mobile-menu-overlay {
+    background-color: rgba(0, 0, 0, 0.98);
+}
+
+.mobile-menu-overlay.hidden {
+    display: none;
+}
+
+.mobile-menu-content {
+    text-align: center;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mobile-menu-link {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0f172a;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mobile-menu-link:hover {
+    color: #f97316;
+}
+
+.mobile-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #0f172a;
+}
+
+.mobile-close-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Dark Mode Text Colors */
+.dark .navbar-link,
+.dark .mobile-menu-link,
+.dark .theme-toggle-btn,
+.dark .mobile-menu-btn,
+.dark .mobile-close-btn {
+    color: #f1f5f9;
+}
+
+.dark .navbar-link:hover,
+.dark .mobile-menu-link:hover {
+    color: #fb923c;
+}
+
+/* Scrolled state - background becomes visible */
+.navbar.navbar-scrolled::before {
+    opacity: 1;
+    border-bottom-color: rgba(226, 232, 240, 0.8); /* slate-200 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dark .navbar.navbar-scrolled::before {
+    border-bottom-color: rgba(30, 41, 59, 0.5); /* slate-800 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.18);
+}
+
+/* Desktop Styles (moved to end to override mobile styles) */
+@media (min-width: 1024px) {
+    .navbar-left,
+    .navbar-controls {
+        position: relative;
+        inset: auto;
+    }
+
+    .navbar-desktop-menu {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .navbar-content {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 0.9rem;
+        justify-content: unset;
+        align-items: center;
+    }
+
+    .navbar-controls {
+        justify-self: end;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+}

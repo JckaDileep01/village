@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Events - Kareempur</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/events.css">
+</head>
+<body class="sub-page bg-slate-50 dark:bg-zinc-950 transition-colors duration-300">
+    <div id="nav-placeholder"></div>
+
+    <main>
+        <section class="events-page-section">
+            <div class="events-container">
+                <h1 class="events-heading" data-en="Upcoming Events" data-te="రాబోయే ఈవెంట్‌లు">Upcoming Events</h1>
+                <div id="events-list" class="events-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module">
+        import { loadComponent } from '../js/utils/loader.js';
+        import { initTheme, toggleTheme } from '../js/theme.js';
+        import { initMobileMenu } from '../js/ui.js';
+        import { setupNavigation } from '../js/utils/navigation.js';
+        import { initNavbarScroll, initScrollObserver } from '../js/animations.js';
+        import { EVENTS } from '../js/events-data.js';
+        import { initLanguageSystem } from '../js/translate.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            initTheme();
+            await Promise.all([
+                loadComponent('#nav-placeholder', '../components/navbar.html', '../../'),
+                loadComponent('#footer-placeholder', '../components/footer.html')
+            ]);
+
+            initLanguageSystem();
+
+            if (window.lucide) lucide.createIcons();
+            const toggleBtn = document.getElementById('theme-toggle');
+            if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+            initMobileMenu();
+            setupNavigation();
+            initNavbarScroll();
+            initScrollObserver();
+
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const container = document.getElementById('events-list');
+
+            function renderCard(e) {
+                return `
+                    <article class="event-card-large">
+                        <div class="event-image"><img src="${e.image}" alt="${e.title}"></div>
+                        <div class="event-body">
+                            <h2 class="event-title">${e.title}</h2>
+                            <p class="event-date">${e.date}</p>
+                            <p class="event-excerpt">${e.excerpt}</p>
+                            <div class="event-content">${e.content}</div>
+                        </div>
+                    </article>
+                `;
+            }
+
+            if (id) {
+                const ev = EVENTS.find(x => String(x.id) === String(id));
+                if (ev) container.innerHTML = renderCard(ev);
+                else container.innerHTML = '<p>Event not found.</p>';
+            } else {
+                container.innerHTML = `<div class="events-grid">${EVENTS.map(e => `
+                    <article class="event-card">
+                        <div class="event-image"><img src="${e.image}" alt="${e.title}"></div>
+                        <h3 class="event-title">${e.title}</h3>
+                        <p class="event-excerpt">${e.excerpt}</p>
+                    </article>
+                `).join('')}</div>`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* Footer Section */
+.footer-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top: 1px solid #e2e8f0; /* slate-200 for light mode */
+    background-color: #f8fafc; /* slate-50 */
+}
+
+.dark .footer-section {
+    border-top-color: #27272a; /* zinc-800 */
+    background-color: transparent; /* or black */
+}
+
+.footer-container {
+    max-width: 72rem; /* 6xl */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #64748b; /* slate-500 */
+}
+
+.dark .footer-container {
+    color: #71717a; /* zinc-500 */
+}
+
+.footer-subtitle {
+    margin-top: 0.5rem;
+    font-size: 0.875rem; /* sm */
+}

@@ -1,0 +1,155 @@
+/* Contact Page Styles */
+.contact-page-main {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    min-height: 80vh;
+}
+
+.contact-page-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.contact-page-title {
+    font-size: 2rem; /* Reduced for mobile */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #0f172a;
+}
+
+@media (min-width: 768px) {
+    .contact-page-title {
+        font-size: 2.5rem;
+    }
+}
+
+.dark .contact-page-title {
+    color: #f8fafc;
+}
+
+/* Grid Layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1.2fr 0.8fr; /* Map takes more space, Contacts take less */
+        align-items: start;
+    }
+}
+
+/* Map Column Adjustments */
+.contact-map-column .location-container {
+    /* Override location.css defaults if needed */
+    padding-top: 0;
+    padding-bottom: 0;
+    background: transparent;
+}
+
+.contact-map-column .location-title {
+    text-align: left;
+    font-size: 1.5rem; /* Reduced for mobile */
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .contact-map-column .location-title {
+        font-size: 1.75rem;
+    }
+}
+
+.contact-map-column .map-container-wrapper {
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Contact Details Column */
+.contact-details-column {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem; /* Reduced padding */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+}
+
+.dark .contact-details-column {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+.contact-details-title {
+    font-size: 1.25rem; /* Reduced for mobile */
+    font-weight: 700;
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 1rem; /* Reduced margin */
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.75rem; /* Reduced padding */
+}
+
+@media (min-width: 768px) {
+    .contact-details-title {
+        font-size: 1.5rem;
+    }
+}
+
+.dark .contact-details-title {
+    color: #f8fafc;
+    border-color: #334155;
+}
+
+.contact-card {
+    margin-bottom: 1rem; /* Reduced margin */
+    padding-bottom: 1rem; /* Reduced padding */
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.dark .contact-card {
+    border-color: #334155;
+}
+
+.contact-card:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.contact-role {
+    font-size: 1rem; /* Slightly smaller role font */
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.25rem; /* Tighter spacing */
+}
+
+.dark .contact-role {
+    color: #94a3b8;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.dark .contact-item {
+    color: #e2e8f0;
+}
+
+.contact-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #f97316; /* Orange accent */
+}

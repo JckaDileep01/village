@@ -1,0 +1,224 @@
+/* Gram Panchayat Section */
+.gram-panchayat-section {
+    padding-top: 4rem; /* Navbar offset */
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #f1f5f9; /* slate-100 */
+    color: #0f172a;
+}
+
+.dark .gram-panchayat-section {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.gp-container {
+    max-width: 80rem; /* 7xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gp-section-title {
+    font-size: 1.75rem; /* Reduced for mobile */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1e293b; /* slate-800 */
+}
+
+@media (min-width: 768px) {
+    .gp-section-title {
+        font-size: 2.25rem; /* 4xl */
+    }
+}
+
+.dark .gp-section-title {
+    color: #ffffff;
+}
+
+/* Office Card */
+.gp-office-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-bottom: 5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.dark .gp-office-card {
+    background-color: #18181b; /* zinc-900 */
+    border-color: #27272a;
+}
+
+@media (min-width: 1024px) {
+    .gp-office-card {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+
+.gp-office-image-wrapper {
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .gp-office-image-wrapper {
+        width: 50%;
+    }
+}
+
+.gp-office-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* min-height: 20rem; Allow image to determine height if needed, but keep min for consistency */
+    min-height: 20rem; 
+}
+
+.gp-office-details {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .gp-office-details {
+        width: 50%;
+        padding: 3rem;
+    }
+}
+
+.gp-office-name {
+    font-size: 1.875rem; /* 3xl */
+    font-weight: 700;
+    color: #f97316; /* orange-500 */
+    margin-bottom: 0.5rem;
+}
+
+.gp-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1.125rem; /* lg */
+    color: #334155; /* slate-700 */
+}
+
+.dark .gp-detail-item {
+    color: #cbd5e1; /* slate-300 */
+}
+
+.gp-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #f97316; /* orange-500 */
+    flex-shrink: 0;
+}
+
+.gp-description {
+    margin-top: 1rem;
+    line-height: 1.75;
+    color: #475569; /* slate-600 */
+}
+
+.dark .gp-description {
+    color: #94a3b8; /* slate-400 */
+}
+
+/* Officials Grid */
+.gp-officials-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+@media (min-width: 640px) {
+    .gp-officials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .gp-officials-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Official Card */
+.official-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.dark .official-card {
+    background-color: #18181b; /* zinc-900 */
+    border-color: #27272a;
+}
+
+.official-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #f97316;
+}
+
+.official-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.dark .official-img-wrapper {
+    background-color: #27272a;
+}
+
+.official-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.official-card:hover .official-img {
+    transform: scale(1.05);
+}
+
+.official-info {
+    padding: 1.5rem;
+}
+
+.official-name {
+    font-size: 1.125rem; /* Reduced for mobile */
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .official-name {
+        font-size: 1.25rem; /* xl */
+    }
+}
+
+.dark .official-name {
+    color: #ffffff;
+}
+
+.official-role {
+    font-size: 0.875rem; /* sm */
+    color: #f97316; /* orange-500 */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

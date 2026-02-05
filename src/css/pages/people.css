@@ -1,0 +1,125 @@
+/* People Section - reused from Gram Panchayat styles */
+.people-section {
+    padding-top: 4rem; /* Navbar offset */
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #f1f5f9; /* slate-100 */
+    color: #0f172a;
+}
+
+.dark .people-section {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.people-container {
+    max-width: 80rem; /* 7xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.people-section-title {
+    font-size: 2.25rem; /* 4xl */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1e293b; /* slate-800 */
+}
+
+.dark .people-section-title {
+    color: #ffffff;
+}
+
+/* Officials Grid (reused for People grid) */
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+@media (min-width: 640px) {
+    .people-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .people-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Person Card (reused from Official Card) */
+.person-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.dark .person-card {
+    background-color: #18181b; /* zinc-900 */
+    border-color: #27272a;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #f97316;
+}
+
+.person-img-wrapper {
+    width: 100%;
+    /* aspect-ratio: 1 / 1; Removed fixed aspect ratio */
+    overflow: hidden;
+    background-color: #f1f5f9;
+    min-height: 250px;
+}
+
+.dark .person-img-wrapper {
+    background-color: #27272a;
+}
+
+.person-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.person-card:hover .person-img {
+    transform: scale(1.05);
+}
+
+.person-info {
+    padding: 1.5rem;
+}
+
+.person-name {
+    font-size: 1.125rem; /* Reduced for mobile */
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+    .person-name {
+        font-size: 1.25rem; /* xl */
+    }
+}
+
+.dark .person-name {
+    color: #ffffff;
+}
+
+.person-role {
+    font-size: 0.875rem; /* sm */
+    color: #f97316; /* orange-500 */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

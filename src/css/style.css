@@ -1,0 +1,208 @@
+/* Global Styles */
+body {
+    /* Default light theme */
+    background-color: #ffffff; /* ensure page is white in light mode */
+    color: #0f172a;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Force body to top to prevent Google Translate displacement */
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Dark mode override for body (applies when `html` has the `dark` class) */
+.dark body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Sub-pages should visually sit on a light paper-like background (matches Gram Panchayat/news) */
+.sub-page {
+    background-color: #f1f5f9; /* slate-100 */
+    transition: background-color 180ms ease;
+}
+
+/* Dark variant for sub-pages */
+.dark .sub-page {
+    background-color: #000000;
+}
+
+/* Homepage Container */
+#homepage-container {
+    min-height: 100vh;
+    background-color: #f8fafc; /* slate-50 */
+    color: #0f172a; /* slate-900 */
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: none; /* hidden by default */
+}
+
+/* Dark Mode Support for Homepage */
+@media (prefers-color-scheme: dark) {
+    #homepage-container {
+        background-color: #000000;
+        color: #ffffff;
+    }
+}
+
+.dark #homepage-container {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Utility to show homepage */
+#homepage-container.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Utility Classes (Replacing Tailwind) */
+.hidden {
+    display: none !important;
+}
+
+.opacity-0 {
+    opacity: 0 !important;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+/* Custom Utilities */
+.bg-200\% {
+    background-size: 200% 100%;
+}
+
+/* Custom Animations */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+    animation: gradient 3s linear infinite;
+}
+
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.2); }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+}
+
+/* Transition Utility Classes */
+.stage-active {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* --- Google Translate Hiding Rules --- */
+/* Completely hide the Google Translate Top Bar */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    display: none !important;
+}
+
+/* Hide the specific iframe Google injects */
+iframe.goog-te-banner-frame {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* Hide tooltips and hover effects */
+.goog-tooltip {
+    display: none !important;
+}
+
+.goog-te-balloon-frame {
+    display: none !important;
+}
+
+/* Remove the blue highlight on translated text */
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Ensure the hidden container stays hidden */
+#google_translate_element {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Hide the 'skiptranslate' class often used on the banner */
+.skiptranslate {
+    display: none !important;
+}
+
+/* Ensure body doesn't get pushed down */
+html, body {
+    top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* --- Telugu Font Overrides for Mobile --- */
+/* Reduces font size for Telugu titles to prevent overflow and visual clutter on small screens */
+
+@media (max-width: 768px) {
+    /* Hero Section */
+    html[lang="te"] .hero-title { font-size: 2rem; line-height: 1.3; }
+    html[lang="te"] .hero-slogan { font-size: 1.5rem; line-height: 1.5; }
+
+    /* Page Titles (Global) */
+    html[lang="te"] .page-title { font-size: 1.6rem; }
+    html[lang="te"] .section-title { font-size: 1.3rem; }
+
+    /* About Page */
+    html[lang="te"] .about-section-title { font-size: 1.6rem; }
+    html[lang="te"] .card-title { font-size: 1.3rem; }
+
+    /* Contact Page */
+    html[lang="te"] .contact-page-title { font-size: 1.6rem; }
+    html[lang="te"] .location-title { font-size: 1.3rem; }
+    html[lang="te"] .contact-details-title { font-size: 1.1rem; }
+
+    /* Gram Panchayat */
+    html[lang="te"] .gp-section-title { font-size: 1.5rem; }
+    html[lang="te"] .gp-office-name { font-size: 1.4rem; }
+    html[lang="te"] .official-name { font-size: 1rem; }
+
+    /* News, Events, Gallery */
+    html[lang="te"] .news-heading,
+    html[lang="te"] .events-heading,
+    html[lang="te"] .gallery-heading { font-size: 1.5rem; }
+
+    /* People */
+    html[lang="te"] .people-section-title { font-size: 1.5rem; }
+    html[lang="te"] .person-name { font-size: 1.1rem; }
+
+    /* Issues Page */
+    html[lang="te"] .conclusion-title { font-size: 1.4rem; }
+    html[lang="te"] .conclusion-text.highlight { font-size: 1.2rem; }
+
+    /* Intro 3D */
+    html[lang="te"] .intro-title-primary { font-size: 1.25rem; line-height: 1.4; }
+    html[lang="te"] .intro-country-name { font-size: 1.4rem; }
+    html[lang="te"] .intro-country-native { font-size: 1.2rem; }
+    html[lang="te"] .welcome-title { font-size: 1.8rem; }
+    html[lang="te"] .welcome-subtitle { font-size: 1rem; }
+
+    /* Welcome Text Screen */
+    html[lang="te"] .welcome-intro-text { font-size: 1.8rem; line-height: 1.4; }
+
+    /* Quick Info */
+    html[lang="te"] .info-title { font-size: 1.1rem; }
+}

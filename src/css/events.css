@@ -1,0 +1,134 @@
+/* Events Styles (card-based with image on top) */
+.events-page-section {
+    /* Match Gram Panchayat / News: spacing and paper background */
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    background-color: #f1f5f9; /* slate-100 */
+    color: #0f172a;
+}
+
+.dark .events-page-section {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.events-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+/* Updated Heading to match News and support Dark Mode */
+.events-heading { 
+    font-size: 1.75rem; /* Reduced for mobile */
+    font-weight: 700; 
+    margin-bottom: 1.5rem; 
+    text-align: center; 
+    color: #111;
+}
+
+@media (min-width: 768px) {
+    .events-heading {
+        font-size: 2rem;
+    }
+}
+
+.dark .events-heading {
+    color: #ffffff;
+}
+
+.events-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; } /* Gap 1.5rem matches News */
+@media (min-width: 1024px) { .events-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Updated Event Card to match News Card sizes */
+.event-card { 
+    background: #fffdf7; 
+    border-radius: 6px; 
+    overflow: hidden; 
+    box-shadow: 0 6px 18px rgba(10,10,10,0.04); 
+    padding: 1rem; /* Increased from 0.5rem to match News */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Updated Image to match News Aspect Ratio */
+.event-image {
+    width: 100%;
+    /* aspect-ratio: 16 / 10; Removed fixed aspect ratio */
+    overflow: hidden;
+    margin: 0.3rem 0;
+    border-radius: 0; 
+    height: 13rem; /* Fixed height for consistency */
+    background-color: #f1f5f9;
+}
+
+.event-image img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+    border-radius: 4px; /* Keeping radius on image as per News/Events style preference */
+}
+
+.event-title { 
+    font-size: 1.125rem; 
+    font-weight: 700; 
+    margin: 0; 
+    letter-spacing: -0.01em;
+    color: #0f172a; /* Explicit color for light mode visibility */
+}
+
+.event-excerpt { 
+    font-size: 0.95rem; 
+    color: #334155; 
+    margin: 0.25rem 0 0.5rem 0;
+}
+
+.dark .event-card { 
+    background: #0b1220; 
+    color: #e6eef8; 
+}
+.dark .event-title {
+    color: #ffffff;
+}
+.dark .event-excerpt { 
+    color: #cbd5e1; 
+}
+
+/* Home preview variant */
+.events-preview.events-section-home {
+    /* Ensure consistent spacing and background */
+    padding: 4rem 1rem 4rem 1rem;
+    background-color: #f1f5f9;
+    margin-top: 0; /* Remove any potential gap */
+}
+
+/* Make home page event containers smaller and centered */
+.events-section-home .events-grid {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.events-section-home .event-card {
+    max-width: 370px; /* Smaller width */
+    margin: 0 auto;   /* Center in grid column */
+    text-align: center; /* Center text content */
+}
+
+.events-section-home .event-excerpt {
+    margin-bottom: 0.5rem;
+}
+
+.dark .events-preview.events-section-home {
+    background-color: #000000;
+} 
+
+/* Large card styles (kept as is or updated if needed, but request focused on home page containers) */
+.event-card-large { display: block; background: #fffdf7; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 28px rgba(10,10,10,0.05); margin-bottom: 1.25rem; }
+.event-body { padding: 1rem; }
+.event-date { color: #64748b; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.event-content { font-size: 1rem; color: #222; line-height: 1.7; }
+.dark .event-card-large { background: #0b1220; color: #e6eef8; }
+.dark .event-content { color: #cbd5e1; }

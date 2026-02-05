@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="src/css/navbar.css">
+<link rel="stylesheet" href="src/css/translate.css">
+
+<nav id="main-nav" class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-content">
+            <div class="navbar-left">
+                <!-- Custom Language Translator -->
+                <div class="custom-translator">
+                    <div class="lang-buttons">
+                        <button class="lang-btn-custom active" data-lang="en">EN</button>
+                        <button class="lang-btn-custom" data-lang="te">తెలుగు</button>
+                    </div>
+                </div>
+            </div> 
+
+            <!-- Desktop Menu -->
+            <div class="navbar-desktop-menu">
+                <a href="index.html?skipIntro=true" class="navbar-link" data-en="Home" data-te="హోమ్">Home</a>
+                <a href="src/pages/about.html" class="navbar-link" data-en="About" data-te="మా గ్రామం">About</a>
+                <a href="src/pages/village-life.html" class="navbar-link" data-en="Village Life" data-te="జీవితం"> Village Life </a>
+                <a href="src/pages/gram-panchayat.html" class="navbar-link" data-en="Gram Panchayat" data-te="గ్రామ పంచాయతీ">Gram Panchayat</a>
+                <a href="src/pages/issues.html" class="navbar-link highlight-red" data-en="Issues & Needs" data-te="సమస్యలు">Issues & Needs </a>
+                <a href="src/pages/news.html" class="navbar-link" data-en="News" data-te="వార్తలు">News</a>
+                <a href="src/pages/events.html" class="navbar-link" data-en="Events" data-te="కార్యక్రమాలు">Events</a>
+                <a href="src/pages/gallery.html" class="navbar-link" data-en="Gallery" data-te="గ్యాలరీ">Gallery</a>
+                <a href="src/pages/people.html" class="navbar-link" data-en="People" data-te="గ్రామ ప్రజలు">People</a>
+                <a href="src/pages/contact.html" class="navbar-link" data-en="Contact" data-te="సంప్రదించండి">Contact</a>
+            </div>
+
+            <!-- Right Side Controls -->
+            <div class="navbar-controls">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle-btn">
+                    <i data-lucide="sun" class="theme-icon-sun"></i>
+                    <i data-lucide="moon" class="theme-icon-moon"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="mobile-menu-btn">
+                    <i data-lucide="menu" class="mobile-menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay hidden">
+        <button id="close-mobile-menu" class="mobile-close-btn">
+            <i data-lucide="x" class="mobile-close-icon"></i>
+        </button>
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-links">
+                <a href="index.html?skipIntro=true" class="mobile-menu-link" data-en="Home" data-te="హోమ్">Home</a>
+                <a href="src/pages/about.html" class="mobile-menu-link" data-en="About" data-te="మా గ్రామం">About</a>
+                <a href="src/pages/village-life.html" class="mobile-menu-link" data-en="Village Life" data-te="జీవితం">Village Life</a>
+                <a href="src/pages/gram-panchayat.html" class="mobile-menu-link" data-en="Gram Panchayat" data-te="గ్రామ పంచాయతీ">Gram Panchayat</a>
+                <a href="src/pages/issues.html" class="mobile-menu-link highlight-red" data-en="Issues & Needs" data-te="సమస్యలు">Issues & Needs</a>
+                <a href="src/pages/news.html" class="mobile-menu-link" data-en="News" data-te="వార్తలు">News</a>
+                <a href="src/pages/events.html" class="mobile-menu-link" data-en="Events" data-te="కార్యక్రమాలు">Events</a>
+                <a href="src/pages/gallery.html" class="mobile-menu-link" data-en="Gallery" data-te="గ్యాలరీ">Gallery</a>
+                <a href="src/pages/people.html" class="mobile-menu-link" data-en="People" data-te="గ్రామ ప్రజలు">People</a>
+                <a href="src/pages/contact.html" class="mobile-menu-link" data-en="Contact" data-te="సంప్రదించండి">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>

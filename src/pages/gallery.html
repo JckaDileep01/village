@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Kareempur</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/gallery.css">
+</head>
+<body class="sub-page bg-slate-50 dark:bg-zinc-950 transition-colors duration-300">
+    <div id="nav-placeholder"></div>
+
+    <main>
+        <section class="gallery-page-section">
+            <div class="gallery-container">
+                <h1 class="gallery-page-title" data-en="Kareempur Gallery" data-te="కరీంపూర్ గ్యాలరీ">Kareempur Gallery</h1>
+                <div class="gallery-grid-large">
+                    <img src="../images/hero1.jpg" alt="Festival" />
+                    <img src="../images/hero.jpg" alt="Water project" />
+                    <img src="../images/hero1.jpg" alt="School" />
+                    <img src="../images/hero.jpg" alt="Village life" />
+                    <img src="../images/hero1.jpg" alt="Temple" />
+                    <img src="../images/hero.jpg" alt="Fields" />
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module">
+        import { loadComponent } from '../js/utils/loader.js';
+        import { initTheme, toggleTheme } from '../js/theme.js';
+        import { initMobileMenu } from '../js/ui.js';
+        import { setupNavigation } from '../js/utils/navigation.js';
+        import { initNavbarScroll, initScrollObserver } from '../js/animations.js';
+        import { initLanguageSystem } from '../js/translate.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            initTheme();
+            await Promise.all([
+                loadComponent('#nav-placeholder', '../components/navbar.html', '../../'),
+                loadComponent('#footer-placeholder', '../components/footer.html')
+            ]);
+
+            initLanguageSystem();
+
+            if (window.lucide) lucide.createIcons();
+            const toggleBtn = document.getElementById('theme-toggle');
+            if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+            initMobileMenu();
+            setupNavigation();
+            initNavbarScroll();
+            initScrollObserver();
+        });
+    </script>
+</body>
+</html>

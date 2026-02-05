@@ -1,0 +1,133 @@
+/* About Page Styles */
+.about-section {
+    padding-top: 4rem; /* Navbar offset */
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #f1f5f9; /* slate-100 */
+    color: #0f172a;
+}
+
+.dark .about-section {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.about-container {
+    max-width: 64rem; /* 5xl - slightly narrower for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section-title {
+    font-size: 2rem; /* Reduced for mobile */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #1e293b; /* slate-800 */
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .about-section-title {
+        font-size: 2.5rem; /* 4xl */
+    }
+}
+
+.about-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 0.25rem;
+    background-color: #f97316; /* orange-500 */
+    border-radius: 9999px;
+}
+
+.dark .about-section-title {
+    color: #ffffff;
+}
+
+/* Content Card */
+.content-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+}
+
+@media (min-width: 768px) {
+    .content-card {
+        padding: 3rem;
+    }
+}
+
+.dark .content-card {
+    background-color: #18181b; /* zinc-900 */
+    border-color: #27272a;
+}
+
+.card-title {
+    font-size: 1.5rem; /* Reduced for mobile */
+    font-weight: 700;
+    color: #f97316; /* orange-500 */
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .card-title {
+        font-size: 1.875rem; /* 3xl */
+    }
+}
+
+.card-text {
+    font-size: 1.125rem; /* lg */
+    line-height: 1.8;
+    color: #334155; /* slate-700 */
+    margin-bottom: 1.5rem;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+}
+
+.dark .card-text {
+    color: #cbd5e1; /* slate-300 */
+}
+
+/* List Styling */
+.vision-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.vision-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    color: #334155;
+}
+
+.dark .vision-item {
+    color: #cbd5e1;
+}
+
+.vision-icon {
+    color: #f97316;
+    margin-top: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}

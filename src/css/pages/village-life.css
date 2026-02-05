@@ -1,0 +1,136 @@
+/* Village Life Page Styles */
+
+.village-life-section {
+    padding: 4rem 1rem 4rem; /* Top padding to account for navbar */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    color: #1e293b; /* slate-800 */
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #f59e0b; /* amber-500 */
+    border-radius: 2px;
+}
+
+/* Dark mode for title */
+.dark .page-title {
+    color: #f1f5f9; /* slate-100 */
+}
+
+.life-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .life-card {
+    background-color: #18181b; /* zinc-900 */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    border-color: rgba(39, 39, 42, 0.8);
+}
+
+.life-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.life-content {
+    flex: 1;
+}
+
+.life-image-wrapper {
+    flex: 1;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    /* height: 300px; Removed fixed height to accept any image aspect ratio */
+    min-height: 300px;
+    background-color: #f1f5f9;
+}
+
+.life-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area, but with auto height wrapper it works well */
+    transition: transform 0.7s ease;
+}
+
+.life-card:hover .life-image {
+    transform: scale(1.1);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #334155; /* slate-700 */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dark .section-title {
+    color: #e2e8f0; /* slate-200 */
+}
+
+.section-icon {
+    color: #f59e0b; /* amber-500 */
+    width: 32px;
+    height: 32px;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569; /* slate-600 */
+}
+
+.dark .section-text {
+    color: #94a3b8; /* slate-400 */
+}
+
+/* Desktop Layout - Alternating */
+@media (min-width: 768px) {
+    .life-card {
+        flex-direction: row;
+        gap: 4rem;
+        padding: 3rem;
+    }
+    
+    .life-image-wrapper {
+        height: 350px;
+    }
+
+    /* Even children: Image Left, Text Right */
+    /* Default (Odd): Content Left, Image Right */
+    .life-card:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}

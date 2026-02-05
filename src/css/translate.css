@@ -1,0 +1,93 @@
+/* Custom Language Translator Buttons */
+.custom-translator {
+    display: flex;
+    align-items: center;
+}
+
+.lang-buttons {
+    display: flex;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.dark .lang-buttons {
+    background: rgba(15, 23, 42, 0.5);
+    border-color: #334155;
+}
+
+.lang-btn-custom {
+    background: transparent;
+    border: none;
+    padding: 4px 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #64748b;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.lang-btn-custom:hover {
+    color: #0f172a;
+    background: rgba(0,0,0,0.05);
+}
+
+.dark .lang-btn-custom {
+    color: #94a3b8;
+}
+
+.dark .lang-btn-custom:hover {
+    color: #f8fafc;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Active State */
+.lang-btn-custom.active {
+    background: #f97316; /* Orange - Rural Theme */
+    color: white;
+}
+
+.dark .lang-btn-custom.active {
+    background: #f97316;
+    color: white;
+}
+
+/* HIDE GOOGLE TRANSLATE UI COMPLETELY */
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    display: none !important;
+}
+
+.goog-tooltip {
+    display: none !important;
+}
+
+.goog-te-balloon-frame {
+    display: none !important;
+}
+
+/* Prevent Google from pushing the body down */
+body {
+    top: 0px !important;
+}
+
+/* Hide the Google Translate Element container */
+#google_translate_element {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Hide text highlight popup */
+#goog-gt-tt {
+    display: none !important;
+    visibility: hidden !important;
+}
